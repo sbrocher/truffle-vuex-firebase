@@ -4,9 +4,9 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-import Web3 from 'web3'
+import { default as Web3 } from 'web3'
 // eslint-disable-next-line
-import contract from 'truffle-contract'
+import { default as contract } from 'truffle-contract'
 
 window.addEventListener('load', () => {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
