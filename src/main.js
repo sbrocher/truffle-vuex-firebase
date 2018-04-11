@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import { store } from './store'
 
 import { default as Web3 } from 'web3'
 // eslint-disable-next-line
@@ -36,5 +37,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
