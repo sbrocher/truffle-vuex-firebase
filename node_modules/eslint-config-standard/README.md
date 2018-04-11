@@ -1,7 +1,4 @@
-# Standard - ESLint Shareable Config
-[![travis][travis-image]][travis-url]
-[![npm][npm-image]][npm-url]
-[![downloads][downloads-image]][downloads-url]
+# eslint-config-standard [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
 [travis-image]: https://img.shields.io/travis/feross/eslint-config-standard/master.svg
 [travis-url]: https://travis-ci.org/feross/eslint-config-standard
@@ -9,14 +6,16 @@
 [npm-url]: https://npmjs.org/package/eslint-config-standard
 [downloads-image]: https://img.shields.io/npm/dm/eslint-config-standard.svg
 [downloads-url]: https://npmjs.org/package/eslint-config-standard
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
 
 #### An ESLint [Shareable Config](http://eslint.org/docs/developer-guide/shareable-configs) for [JavaScript Standard Style](http://standardjs.com)
 
-This module is for advanced users. You probably want to use [`standard`](http://standardjs.com) instead :)
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
+[![JavaScript Style Guide - Standard Style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
 ## Install
+
+This module is for advanced users. You probably want to use [`standard`](http://standardjs.com) instead :)
 
 ```bash
 npm install eslint-config-standard
@@ -32,7 +31,7 @@ official ESLint website.
 To use the JavaScript Standard Style shareable config, first run this:
 
 ```bash
-npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise
+npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
 ```
 
 Then, add this to your .eslintrc file:
