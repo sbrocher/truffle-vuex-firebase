@@ -9,6 +9,17 @@ import { default as Web3 } from 'web3'
 // eslint-disable-next-line
 import { default as contract } from 'truffle-contract'
 
+import firebase from 'firebase'
+
+firebase.initializeApp({
+  apiKey: 'AIzaSyAJlhOjwHtfWqgun1IrrpRKhguUs6q1JnI',
+  authDomain: 'ethereum-firebase-example-app.firebaseapp.com',
+  databaseURL: 'https://ethereum-firebase-example-app.firebaseio.com',
+  projectId: 'ethereum-firebase-example-app',
+  storageBucket: 'ethereum-firebase-example-app.appspot.com',
+  messagingSenderId: '780950225975'
+})
+
 window.addEventListener('load', () => {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
