@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import user from './user'
+import shared from './shared'
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  state: {
-    appTitle: 'Ethereum Firebase Example App'
-  },
-  mutations: {},
-  actions: {},
-  getters: {}
+  modules: {
+    user: user,
+    shared: shared
+  }
 })
