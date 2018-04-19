@@ -16,14 +16,26 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
         .then(
           user => {
-            commit('setLoading', false)
-            const newUser = {
-              id: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoUrl: user.photoURL
-            }
-            commit('setUser', newUser)
+            user.updateProfile({displayName: payload.eth_address})
+              .then(
+                user => {
+                  commit('setLoading', false)
+                  const newUser = {
+                    id: user.uid,
+                    name: user.eth_address,
+                    email: user.email,
+                    photoUrl: user.photoURL
+                  }
+                  commit('setUser', newUser)
+                }
+              )
+              .catch(
+                error => {
+                  commit('setLoading', false)
+                  commit('setError', error)
+                  console.log(error)
+                }
+              )
           }
         )
         .catch(

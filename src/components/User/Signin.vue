@@ -44,7 +44,7 @@
                        </span>
                     </v-btn>
                     </div>
-                    <div class="text-xs-center">
+<!--                     <div class="text-xs-center">
                       <v-btn round class="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Login with Google
                         <v-icon right dark>lock_open</v-icon>
                         <span slot="loader" class="custom-loader">
@@ -75,7 +75,7 @@
                         <v-icon light>cached</v-icon>
                        </span>
                       </v-btn>
-                    </div>
+                    </div> -->
                   </v-flex>
                 </v-layout>
               </form>

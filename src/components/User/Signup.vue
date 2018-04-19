@@ -25,6 +25,19 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
+                      name="eth_address"
+                      label="Ethereum Address"
+                      id="eth_address"
+                      v-model="eth_address"
+                      type="text"
+                      :disabled="true"
+                      required>
+                    </v-text-field>
+                  </v-flex>
+                </v-layout>                
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-text-field
                       name="password"
                       label="Password"
                       id="password"
@@ -55,7 +68,7 @@
                        </span>
                     </v-btn>
                     </div>
-                    <div class="text-xs-center">
+<!--                     <div class="text-xs-center">
                       <v-btn round class="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Login with Google
                         <v-icon right dark>lock_open</v-icon>
                         <span slot="loader" class="custom-loader">
@@ -86,7 +99,7 @@
                         <v-icon light>cached</v-icon>
                        </span>
                       </v-btn>
-                    </div>
+                    </div> -->
                   </v-flex>
                 </v-layout>
               </form>
@@ -119,6 +132,9 @@
       },
       loading () {
         return this.$store.getters.loading
+      },
+      eth_address () {
+        return this.$store.state.metamask.web3.coinbase
       }
     },
     watch: {
@@ -130,7 +146,7 @@
     },
     methods: {
       onSignup () {
-        this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
+        this.$store.dispatch('signUserUp', {email: this.email, password: this.password, eth_address: this.eth_address})
       },
       onSigninGoogle () {
         this.$store.dispatch('signUserInGoogle')
