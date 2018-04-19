@@ -1,4 +1,5 @@
 import getWeb3 from '../../utils/getWeb3'
+import pollWeb3 from '../../utils/pollWeb3'
 
 export default {
   state: {
@@ -21,6 +22,10 @@ export default {
       }).catch(e => {
         console.log('error in action registerWeb3', e)
       })
+    },
+    pollWeb3 ({commit}, payload) {
+      console.log('pollWeb3 action being executed')
+      commit('pollWeb3Instance', payload)
     }
   },
   mutations: {
@@ -34,6 +39,12 @@ export default {
       web3Copy.isInjected = result.injectedWeb3
       web3Copy.web3Instance = result.web3
       state.web3 = web3Copy
+      pollWeb3()
+    },
+    pollWeb3Instance (state, payload) {
+      console.log('pollWeb3Instance mutation being executed', payload)
+      state.web3.coinbase = payload.coinbase
+      state.web3.balance = parseInt(payload.balance, 10)
     }
   }
 }
