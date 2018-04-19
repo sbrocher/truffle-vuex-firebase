@@ -3,38 +3,19 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import router from './router'
 import { store } from './store'
-import { default as Web3 } from 'web3'
 // eslint-disable-next-line
 import { default as contract } from 'truffle-contract'
 import firebase from 'firebase'
 
 const App = () => import('./App')
 const AlertCmp = () => import('./components/Shared/Alert.vue')
+const MetaMaskCmp = () => import('./components/Shared/MetaMask.vue')
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 
 Vue.component('app-alert', AlertCmp)
-
-window.addEventListener('load', () => {
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-    console.warn('Using web3 detected from external source.')
-    // Use Mist/MetaMask's provider
-    // eslint-disable-next-line
-    window.web3 = new Web3(web3.currentProvider)
-    // eslint-disable-next-line
-    web3.eth.getAccounts(function(err, accs) {
-      if (err != null) {
-        console.warn('There was an error fetching your accounts.')
-      } else {
-        console.log('Got the accounts', accs)
-      }
-    })
-  } else {
-    console.warn('No web3 detected.')
-  }
-})
+Vue.component('app-metamask', MetaMaskCmp)
 
 /* eslint-disable no-new */
 new Vue({

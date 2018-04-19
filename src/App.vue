@@ -28,6 +28,10 @@
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">Ethereum Firebase App</router-link>
       </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      <app-metamask></app-metamask>
+
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
@@ -57,6 +61,10 @@
 
 <script>
   export default {
+    beforeCreate () {
+      console.log('registerWeb3 Action dispatched from App.vue')
+      this.$store.dispatch('registerWeb3')
+    },
     data () {
       return {
         sideNav: false
@@ -77,6 +85,9 @@
       },
       userIsAuthenticated () {
         return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      },
+      web3IsAvailable () {
+        return this.$store.web3 !== null && this.$store.web3 !== undefined
       }
     },
     methods: {
